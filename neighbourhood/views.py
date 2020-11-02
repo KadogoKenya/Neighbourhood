@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
 
     neighbourhood = Neighbourhood.objects.all()
-    contex{
-        neighbourhoods:'neighbourhoods'
+    contex={
+        'neighbourhoods':neighbourhoods,
     }
     return render(request, 'neighbour/index.html', context)
