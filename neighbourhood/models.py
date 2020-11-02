@@ -35,6 +35,13 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_owner')
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, related_name='neighbour')
 
+# class User(models.Model):
+#     name=models.CharField(max_length=25)
+#     id=models.IntegerField()
+#     emai=models.EmailField()
+#     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, related_name='neighbour')
+
+
 
 
 
