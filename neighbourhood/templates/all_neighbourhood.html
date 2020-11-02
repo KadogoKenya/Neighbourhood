@@ -1,0 +1,51 @@
+{% extends 'neighbour/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="container">
+    <a href="{% url 'add_mtaa' %}" class="btn btn-sm btn-info mb-2"> New Hood</a>
+
+   
+    <div class="row">
+
+        <div class="col-md-4">
+            <h2>Select Your Neighbourhood</h2>
+
+                      {% for neighborhoods in neighborhoods %}
+                        <a href="{% url 'neighborhood' neighborhood.id %}" class='btn btn-primary btn-sm'>{{neighborhood.name}}</a> <br>
+                        {% endfor %}
+        </div>
+<div class="col-md-8">
+        <h2>Welcome to our neighbourhood community</h2>
+        <div class="table-responsive">
+            <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead class="black white-text">
+                    <tr class="font-weight-bold">
+
+                        <th class="th-sm">Location</th>
+                        <th class="th-sm">Neighborhood</th>
+                        <th class="th-sm">description</th>
+                        <th class="th-sm">Health-Department <br>Contacts</th>
+                        <th class="th-sm">Police <br>Contacts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for neighborhood in neighborhoods %}
+                    <tr>
+                        <td>{{ neighborhood.location}}</td>
+                        <td>{{ neighborhood.name}}</td>
+                        <td>{{ neighborhood.description}}</td>
+                        <td>{{ neighborhood.health}}</td>
+                        <td>{{ neighborhood.police}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </div>
+</div>
+{% endblock %}
