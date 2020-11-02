@@ -5,7 +5,7 @@
 
 
 <div class="container">
-    <a href="{% url 'add_neighbourhood' %}" class="btn btn-sm btn-info mb-2"> New Hood</a>
+    <a href="{% url 'neighbour' neighbour.id %}" class="btn btn-sm btn-info mb-2"> New neighbourhood</a>
 
    
     <div class="row">
@@ -13,9 +13,9 @@
         <div class="col-md-4">
             <h2>Neighbourhood</h2>
 
-                      {% for neighbourhoods in neighbourhoods %}
-                        <a href="{% url 'neighbourhood' neighbourhood.id %}" class='btn btn-primary btn-sm'>{{neighbourhoods.name}}</a> <br>
-                        {% endfor %}
+        {% for neighbourhoods in neighbourhoods %}
+        <a href="{% url 'neighbour' neighbour.id %}" class='btn btn-primary btn-sm'>{{neighbourhoods.name}}</a> <br>
+        {% endfor %}
         </div>
 <div class="col-md-8">
         <h2>Welcome to our neighbourhood community</h2>
