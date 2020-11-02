@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from .models import Neighbourhood, Post, Business
+from .forms import NeighbourHoodForm, PostForm, BusinessForm
 
 # Create your views here.
 @login_required(login_url='/login/')
@@ -22,7 +23,7 @@ def add_neighbourhood(request):
             neighbourhood = form.save(commit=False)
             neighbourhood.admin = request.user.profile
             neighbourhood.save()
-            return redirect('index')
+            return redirect('create_neighbourhood')
     else:
         form = NeighbourHoodForm()
     return render(request, 'create_neighbourhood.html', {'form': form})
@@ -31,7 +32,7 @@ def add_neighbourhood(request):
 @login_required(login_url='login')
 def all_neighbourhoods(request):
     neighbourhoods = Neighbourhood.objects.all()
-    neighbourhoods = mitaa_zote[::-1]
+    neighbourhoods = neighbourhoods[::-1]
     context = {
         'neighbourhoods': neighbourhoods,
     }
@@ -39,7 +40,7 @@ def all_neighbourhoods(request):
 
 
 def new_posts(request, neighbour_id):
-    neighbour = Neighbourhood.objects.get(id=mtaa_id)
+    neighbour = Neighbourhood.objects.get(id=neighbour_id)
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():

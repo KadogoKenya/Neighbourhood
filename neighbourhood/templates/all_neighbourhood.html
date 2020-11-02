@@ -5,16 +5,16 @@
 
 
 <div class="container">
-    <a href="{% url 'add_mtaa' %}" class="btn btn-sm btn-info mb-2"> New Hood</a>
+    <a href="{% url 'add_neighbourhood' %}" class="btn btn-sm btn-info mb-2"> New Hood</a>
 
    
     <div class="row">
 
         <div class="col-md-4">
-            <h2>Select Your Neighbourhood</h2>
+            <h2>Neighbourhood</h2>
 
-                      {% for neighborhoods in neighborhoods %}
-                        <a href="{% url 'neighborhood' neighborhood.id %}" class='btn btn-primary btn-sm'>{{neighborhood.name}}</a> <br>
+                      {% for neighbourhoods in neighbourhoods %}
+                        <a href="{% url 'neighbourhood' neighbourhood.id %}" class='btn btn-primary btn-sm'>{{neighbourhoods.name}}</a> <br>
                         {% endfor %}
         </div>
 <div class="col-md-8">
@@ -32,13 +32,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for neighborhood in neighborhoods %}
+                    {% for neighbourhoods in neighbourhoods %}
                     <tr>
-                        <td>{{ neighborhood.location}}</td>
-                        <td>{{ neighborhood.name}}</td>
-                        <td>{{ neighborhood.description}}</td>
-                        <td>{{ neighborhood.health}}</td>
-                        <td>{{ neighborhood.police}}</td>
+                        <td>{{ neighbourhoods.location}}</td>
+                        <td>{{ neighbourhoods.name}}</td>
+                        <td>{{ neighbourhoods.description}}</td>
+                        <td>{{ neighbourhoods.health}}</td>
+                        <td>{{ neighbourhoods.police}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

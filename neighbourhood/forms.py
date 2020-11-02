@@ -8,17 +8,17 @@ from users.models import Profile
 class NeighbourHoodForm(forms.ModelForm):
     class Meta:
         model = Neighbourhood
-        fields=['name','location','occupants_count','Admin','pub_date','description']
+        fields=['name','location','occupants_count','Admin','description']
         
 
 
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        fields=['name','email','description','neighbourhood','health','police']
+        fields=['name','email','image','description','neighbourhood','health','police']
 
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields=['post','date','user','neighbourhood']
+        fields=['post','user','image','neighbourhood']

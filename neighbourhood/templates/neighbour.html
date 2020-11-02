@@ -5,7 +5,7 @@
 <div class="container">
 
     <h5 class="card-title">
-        Dear {user.username|title}, Welcome to your hood,{{ neighborhoods.name }} in {{neighborhoods.location}}
+        Dear {user.username|title}, Welcome to your hood,{{ neighbourhoods.name }} in {{neighbourhoods.location}}
     </h5>
     <div class="row">
         <div class="col-md-12">
@@ -14,15 +14,15 @@
                     <div class="card-body">
                         <div class="col-md-6">
                             <p class="card-text">
-                                <span class="text-info">Emergency Police Contact</span>&nbsp;<strong>{{neighborhoods.police}}</strong> |
+                                <span class="text-info">Emergency Police Contact</span>&nbsp;<strong>{{neighbourhoods.police}}</strong> |
 
-                                <span class="text-info">Health Contact Details</span> <strong>{{neighborhoods.health}}</strong></p>
+                                <span class="text-info">Health Contact Details</span> <strong>{{neighbourhoods.health}}</strong></p>
 
-                            <p class="card-text">Administrator:{{ neighborhoods.admin.user }}</p>
+                            <p class="card-text">Administrator:{{ neighbourhoods.admin.user }}</p>
                         </div>
 
                         <div class="col-md-6">
-                            <p class="card-text">{{neighborhoods.description}}</p>
+                            <p class="card-text">{{neighbourhoods.description}}</p>
                         </div>
                     </div>
                 </div>
@@ -38,14 +38,13 @@
 
                 {% for business in business %}
                 <div class="card mb-4">
-                    <img src="{{ biz.business_image.url }}" alt="" class="card-header">
+                    <img src="{{ business.business_image.url }}" alt="" class="card-header">
                     <div class="card-body">
                         <h5 class="card-title">{{business.name}}
                         </h5>
                         <p class="card-text">{{business.email}}</p>
                         <p class="card-text">{{business.description}}</p>
-                        <p class="card-text">Neighbourhood: <small class="text-muted">
-                                {{ business.neighbourhood.neighbourhood.name}}</small></p>
+                        <p class="card-text">Neighbourhood: <small class="text-muted">{{ business.neighbourhood.neighbourhood.name}}</small></p>
                         <p class="card-text">Business Owner: <small class="text-muted">{{ business.user.user.username|title }}</small></p>
                         <p class="card-text">Health Contacts: <small class="text-muted">{{ business.health }}</small></p>
 
@@ -70,7 +69,7 @@
 
             <h5 class="D-block mx-auto">Posts</h5>
             <div class="col-md-5">
-                <a href="{% url 'add_post' mtaa.id %}" class="btn btn-primary">ADD POST</a>
+                <a href="{% url 'new_posts' neighbour.id %}" class="btn btn-primary">ADD POST</a>
                 {% for post in posts %}
                 <div class="card mb-4">
                     <div class="card-body">
