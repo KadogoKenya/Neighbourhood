@@ -8,7 +8,7 @@ from
 class NeighbourHoodForm(forms.ModelForm):
     class Meta:
         model = Neighbourhood
-        fields=['name','location','occupants_count','pub_date','description']
+        fields=['name','location','occupants_count','Admin','pub_date','description']
         
 
 

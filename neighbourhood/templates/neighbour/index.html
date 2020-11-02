@@ -34,4 +34,20 @@
         </section>
 
     </div>
+
+    <p>Show up</p>
+
+    <div class="col">
+        <!-- Default input -->
+        <select name="neighborhood" class="form-control  form-control-lg">
+            {% for neighborhoods in neighbourhoods %}
+            <option value="{{neighborhoods.name}}">{{neighborhoods.name}}</option>
+            {% endfor %}
+          </select>     
+    </div>
+
+{{ mitaa_zote.name }}
+{{ mitaa_zote.location }}
+
+
 {% endblock %}

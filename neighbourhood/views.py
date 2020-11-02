@@ -14,3 +14,15 @@ def index(request):
     #     'neighbourhoods':neighbourhoods,
     # }
     return render(request, 'neighbour/index.html', {'neighbourhoods':neighbourhoods})
+
+def add_neighbourhood(request):
+    if request.method == 'POST':
+        form = NeighbourHoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            neighbourhood = form.save(commit=False)
+            neighbourhood.admin = request.user.profile
+            neighbourhood.save()
+            return redirect('index')
+    else:
+        form = NeighbourHoodForm()
+    return render(request, 'create_neighbourhood.html', {'form': form})
