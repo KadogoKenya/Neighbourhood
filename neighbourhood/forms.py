@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import Neighbourhood,Business, Post
 from users.models import Profile
-from 
+
 
 
 class NeighbourHoodForm(forms.ModelForm):
@@ -15,7 +15,7 @@ class NeighbourHoodForm(forms.ModelForm):
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        fields=['name','email','description','neighbourhood']
+        fields=['name','email','description','neighbourhood','health','police']
 
 
 class PostForm(forms.ModelForm):
