@@ -5,5 +5,6 @@ from users.models import Profile
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url='/login/')
 def index(request):
     return render(request, 'neighbour/index.html')
