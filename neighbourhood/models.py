@@ -29,6 +29,11 @@ class Neighbourhood(models.Model):
     @classmethod
     def find_neighbourhood(cls, neighbourhood_id):
         return cls.objects.filter(id=neighbourhood_id)
+
+    @classmethod
+    def get_all_tutorials(cls):
+        neighbourhoods = cls.objects.all()
+        return neighbourhoods
     
 
 class Business(models.Model):

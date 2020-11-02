@@ -9,8 +9,8 @@ from .models import Neighbourhood, Post, Business
 @login_required(login_url='/login/')
 def index(request):
 
-    neighbourhood = Neighbourhood.objects.all()
-    contex={
-        'neighbourhoods':neighbourhoods,
-    }
-    return render(request, 'neighbour/index.html', context)
+    neighbourhoods = Neighbourhood.objects.all()
+    # contex={
+    #     'neighbourhoods':neighbourhoods,
+    # }
+    return render(request, 'neighbour/index.html', {'neighbourhoods':neighbourhoods})
