@@ -81,10 +81,9 @@
                         </div>
                         <div class="card-body">
                             
-                            <h5 class="card-title">{{post.post}}
-                            </h5>
+                            <h5 class="card-title">Post: <small class="text-muted"> {{post.post}}</small></h5>
                             <p class="card-text">Posted By: <small class="text-muted"> {{ post.user|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>
-                            <p class="card-text">Posted By: <small class="text-muted">{{ post.neighbourhood|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>
+                            <p class="card-text">Neighbourhood: <small class="text-muted">{{ post.neighbourhood|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>
                         </div>
                     </div>
                     {% endfor %}
