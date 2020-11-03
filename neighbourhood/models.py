@@ -16,6 +16,7 @@ class Neighbourhood(models.Model):
     health = models.IntegerField(null=True, blank=True)
     police = models.IntegerField(null=True, blank=True)
     description = models.TextField()
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
 
 
     def __str__(self):
@@ -48,6 +49,7 @@ class Business(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
     health = models.IntegerField(null=True, blank=True)
     police = models.IntegerField(null=True, blank=True)
+    
 
 
     def __str__(self):

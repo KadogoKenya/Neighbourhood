@@ -8,7 +8,7 @@ from users.models import Profile
 class NeighbourHoodForm(forms.ModelForm):
     class Meta:
         model = Neighbourhood
-        fields=['name','location','occupants_count','Admin','description']
+        fields=['name','location','occupants_count','Admin','description','health','police']
         
 
 

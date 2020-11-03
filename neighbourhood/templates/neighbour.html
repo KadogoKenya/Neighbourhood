@@ -5,25 +5,24 @@
 <div class="container">
 
     <h5 class="card-title">
-        Dear {{user.username|title}}, Welcome to your neighbourhood,{{ neighbourhoods.name }} in {{neighbourhoods.location}}
+        Dear {{user.username|title}}, Welcome to your neighbourhood,{{ neighbour.name }} in {{neighbour.location}}
     </h5>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card mb-3">
                 <div class="row">
                     <div class="card-body">
                         <div class="col-md-6">
                             <p class="card-text">
-                                <span class="text-info">Police Contact</span>&nbsp;<strong>{{neighbour.police}}</strong> |
+                                <span class="text-info">Police Contact</span>&nbsp;<strong>{{neighbour.police}}</strong> <br><br>
 
-                                <span class="text-info">Hospital Contacts</span> <strong>{{neighbour.health}}</strong></p>
+                                <span class="text-info">Hospital Contacts</span> <strong>{{neighbour.health}}</strong></p><br><br>
 
-                            <p class="card-text">Admin:{{ neighbour.admin.user }}</p>
+                                <span class="text-info">Description</span>&nbsp;<strong>{{neighbour.description}}</strong> <br><br>
+
+                            <p class="card-text">Admin:{{user.username|title}}</p>
                         </div>
 
-                        <div class="col-md-6">
-                            <p class="card-text">{{neighbour.description}}</p>
-                        </div>
                     </div>
                 </div>
             </div>
