@@ -12,19 +12,19 @@
             Menu
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{%url 'neighbour' %}">Neighbourhoods</a>
-            <a class="dropdown-item" href="{{% url 'create_neighbourhood'  %}}">Add Neighbourhoods</a>
-            <a class="dropdown-item" href="/logout">Logout</a>
+            <a href="{% url 'create_neighbourhood' %}"> New neighbourhood</a>
+            <a href="{% url 'create_neighbourhood' %}"> New neighbourhood</a>
+            <a href="{% url 'create_neighbourhood' %}"> New neighbourhood</a>    
           </div>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="{% url 'create_neighbourhood' %}" class="btn btn-sm btn-info mb-2"> New neighbourhood</a>
 
-        </li>
+        </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Profiles
