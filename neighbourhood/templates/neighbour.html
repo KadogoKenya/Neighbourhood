@@ -5,7 +5,7 @@
 <div class="container">
 
     <h5 class="card-title">
-        Dear {{user.username|title}}, Welcome to your hood,{{ neighbourhoods.name }} in {{neighbourhoods.location}}
+        Dear {{user.username|title}}, Welcome to your neighbourhood,{{ neighbourhoods.name }} in {{neighbourhoods.location}}
     </h5>
     <div class="row">
         <div class="col-md-12">
@@ -14,74 +14,78 @@
                     <div class="card-body">
                         <div class="col-md-6">
                             <p class="card-text">
-                                <span class="text-info">Police Contact</span>&nbsp;<strong>{{hood.police}}</strong> |
+                                <span class="text-info">Police Contact</span>&nbsp;<strong>{{neighbour.police}}</strong> |
 
-                                <span class="text-info">Hospital Contacts</span> <strong>{{hood.health}}</strong></p>
+                                <span class="text-info">Hospital Contacts</span> <strong>{{neighbour.health}}</strong></p>
 
                             <p class="card-text">Admin:{{ neighbour.admin.user }}</p>
                         </div>
 
                         <div class="col-md-6">
-                            <p class="card-text">{{mtaa.description}}</p>
+                            <p class="card-text">{{neighbour.description}}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="row">
 
-        <div class="col-md-12">
+            <div class="col-md-12">
 
-            <h5 class="D-block mx-auto">Business'</h5>
-            <hr>
-            <div class="col-md-7">
-
-                {% for business in business %}
-                <div class="card mb-4">
-                    <img src="{{ business.business_image.url }}" alt="" class="card-header">
-                    <div class="card-body">
-                        <h5 class="card-title">{{business.name}}
-                        </h5>
-                        <p class="card-text">{{business.email}}</p>
-                        <p class="card-text">{{business.description}}</p>
-                        <p class="card-text">Neighbourhood: <small class="text-muted">{{ business.neighbourhood.neighbourhood.name}}</small></p>
-                        <p class="card-text">Business Owner: <small class="text-muted">{{ business.user.user.username|title }}</small></p>
-                        <p class="card-text">Health Contacts: <small class="text-muted">{{ business.health }}</small></p>
-
-                        <p class="card-text">Health Contacts: <small class="text-muted">{{ business.police }}</small></p>
-                    </div>
-                </div>
-                {% endfor %}
+                <h5 class="D-block mx-auto">Business'</h5>
                 <hr>
-                <h2>Add your business to neighbourhoods</h2>
-                <form action="" method="post">
-                    {% csrf_token%}
-                    {{form|crispy}}
-                    <button type="submit" class="btn btn-sm btn-success">Save Business</button>
-                    <button type="button" class="btn btn-sm btn-outline-danger " data-dismiss="modal">
-                        Close
-                    </button>
-                </form>
-
-            </div>
-            <div class="col-md-1"></div>
-
-
-            <h5 class="D-block mx-auto">Posts</h5>
-            <div class="col-md-5">
-                <a href="{% url 'new_posts' neighbour.id %}" class="btn btn-primary">ADD POST</a>
-                {% for post in posts %}
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">{{post.post}}
-                        </h5>
-                        <p class="card-text">By: <small class="text-muted"> {{ post.user|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>
-                        <p class="card-text">By: <small class="text-muted">{{ post.neighbourhood|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>
+                <div class="col-md-7">
+    
+                    {% for business in business %}
+                    <div class="card mb-4">
+                        <img src="{{ business.business_image.url }}" alt="" class="card-header">
+                        <div class="card-body">
+                            <h5 class="card-title">Name: <small class="text-muted">{{business.name}}</small></h5>
+                            <p class="card-text">Email: <small class="text-muted">{{business.email}}</small></p>
+                            <p class="card-text">Description: <small class="text-muted">{{business.description}}</small></p>
+                            <p class="card-text">Neighbourhood: <small class="text-muted">{{ business.neighbourhood.name}}</small></p>
+                            <p class="card-text">Business Owner: <small class="text-muted">{{ business.user.username|title }}</small></p>
+                            <p class="card-text">Health Contacts: <small class="text-muted">{{ business.health }}</small></p>
+    
+                            <p class="card-text">Police Contacts: <small class="text-muted">{{ business.police }}</small></p>
+                        </div>
                     </div>
+                    {% endfor %}
+                    <hr>
+                    <h2>Update your business to neighbourhoods</h2>
+                    <form action="" method="post">
+                        {% csrf_token%}
+                        {{form|crispy}}
+                        <button type="submit" class="btn btn-sm btn-success">Save Business</button>
+                        <button type="button" class="btn btn-sm btn-outline-danger " data-dismiss="modal">
+                            Close
+                        </button>
+                    </form>
+    
                 </div>
-                {% endfor %}
+                <div class="col-md-1"></div>
+    
+    
+                <h5 class="D-block mx-auto">Posts</h5>
+                <div class="col-md-5">
+                    <a href="{% url 'new_posts' neighbour.id %}" class="btn btn-primary">ADD POST</a>
+                    {% for post in posts %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{post.post}}
+                            </h5>
+                            <p class="card-text">Posted By: <small class="text-muted"> {{ post.user|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>
+                            <p class="card-text">Posted By: <small class="text-muted">{{ post.neighbourhood|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
+
         </div>
+
+
 
     </div>
 </div>
