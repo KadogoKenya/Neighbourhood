@@ -33,9 +33,13 @@ class Neighbourhood(models.Model):
         return cls.objects.filter(id=neighbourhoods_id)
 
     @classmethod
-    def get_all_tutorials(cls):
+    def get_all_neighbourhoods(cls):
         neighbourhoods = cls.objects.all()
         return neighbourhoods
+
+
+    def get_absolute_url(self):        
+        return reverse('index')
     
 
 class Business(models.Model):

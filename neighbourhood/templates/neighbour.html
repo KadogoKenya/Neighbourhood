@@ -1,4 +1,6 @@
 {% extends 'neighbour/base.html' %}
+{% load cloudinary %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -71,7 +73,11 @@
                     <a href="{% url 'new_posts' neighbour.id %}" class="btn btn-primary">ADD POST</a>
                     {% for post in posts %}
                     <div class="card mb-4">
+                        <div class="card-img">
+                          <img class="card-img" src="{{ post.image.url }}">
+                        </div>
                         <div class="card-body">
+                            
                             <h5 class="card-title">{{post.post}}
                             </h5>
                             <p class="card-text">Posted By: <small class="text-muted"> {{ post.user|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>

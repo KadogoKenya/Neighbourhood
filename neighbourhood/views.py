@@ -82,7 +82,7 @@ def neighbour(request, neighbour_id):
     return render(request, 'neighbour.html', context)
 
 
-def search_results(request):
+def search_by_name(request):
 
     if 'business' in request.GET and request.GET["business"]:
         search_term = request.GET.get("business")
