@@ -16,6 +16,8 @@ def index(request):
     # }
     return render(request, 'neighbour/index.html', {'neighbourhoods':neighbourhoods})
 
+
+@login_required(login_url='login')
 def add_neighbourhood(request):
     if request.method == 'POST':
         form = NeighbourHoodForm(request.POST, request.FILES)
@@ -38,7 +40,7 @@ def all_neighbourhoods(request):
     }
     return render(request, 'all_neighbourhoods.html', context)
 
-
+@login_required(login_url='login')
 def new_posts(request, neighbour_id):
     neighbour = Neighbourhood.objects.get(id=neighbour_id)
     if request.method == 'POST':
@@ -78,3 +80,17 @@ def neighbour(request, neighbour_id):
         'posts': posts
     }
     return render(request, 'neighbour.html', context)
+
+
+def search_results(request):
+
+    if 'business' in request.GET and request.GET["business"]:
+        search_term = request.GET.get("business")
+        searched_articles = Business.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'neighbour/search.html',{"message":message,"businesses": searched_businesses})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'neighbour/search.html',{"message":message})
