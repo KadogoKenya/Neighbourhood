@@ -41,16 +41,22 @@
                         <td>{{ neighbourhoods.description}}</td>
                         <td>{{ neighbourhoods.health}}</td>
                         <td>{{ neighbourhoods.police}}</td>
+
+                       
+
+                        <td>{{neighbourhoods.neighbourhood.user|title}}</td>
+                        <td>{{neighbourhoods.neighbourhood.Business.name}} </td>
+
                     </tr>
                     {% endfor %}
 
                     {% for post in posts %}
-                    <tr><td>{{post.user|title}}</td></tr>
+                    <tr><td>{{neighbourhood.post.user|title}}</td></tr>
                     
                     {% endfor %}
 
                     {% for business in business %}
-                    <tr><td>{{business.name}}</td></tr>
+                    <tr><td>{{neighbourhood.business.name}}</td></tr>
                     
                     {% endfor %}
 
