@@ -63,7 +63,10 @@ class Business(models.Model):
 
     @classmethod
     def find_business(cls, business_id):
-        return cls.objects.filter(id=business_id)
+        business = cls.objects.filter(id=business_id)
+        return business
+
+    
 
 
 class Post(models.Model):
