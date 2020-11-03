@@ -13,11 +13,8 @@ urlpatterns = [
     # path('', views.index, name='index'),
     path('create_neighbourhood', views.add_neighbourhood, name='create_neighbourhood'),
     path('index', views.index, name='index'),
-
     path('', views.all_neighbourhoods, name='all_neighbourhoods'),
-
-    path('new_posts/<neighbour_id>', views.add_neighbourhood, name='new_posts'),
-
+    path('new_posts/<neighbour_id>', views.new_posts, name='new_posts'),
     path('neighbour/<neighbour_id>', views.neighbour, name='neighbour'),
 
 
