@@ -3,9 +3,21 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
 
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'all_neighbourhoods' %}">MENU <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'all_neighbourhoods' %}">Home <span class="sr-only">(current)</span></a>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{%url 'neighbour' %}">Neighbourhoods</a>
+            <a class="dropdown-item" href="{{% url 'create_neighbourhood'  %}}">Add Neighbourhoods</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li>
