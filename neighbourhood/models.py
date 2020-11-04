@@ -47,7 +47,7 @@ class Business(models.Model):
     # id=models.IntegerField()
     # user=models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     email=models.EmailField()
-    image = cloudinary.models.CloudinaryField('images', default='default.img')
+    image = cloudinary.models.CloudinaryField('images', default='default.jpg')
     description = models.TextField(blank=True)
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, related_name='business')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
@@ -75,7 +75,7 @@ class Business(models.Model):
 
 class Post(models.Model):
     post = models.TextField()
-    image = cloudinary.models.CloudinaryField('images',default='default.img')
+    image = cloudinary.models.CloudinaryField('images',default='default.jpg')
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_owner')
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, related_name='neighbour')

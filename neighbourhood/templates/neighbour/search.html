@@ -22,39 +22,41 @@
     {% endfor %}
   {% endif %}
   </div>
+
+  <div class="container-fluid">
+    {% if businesses %}
+      <!-- start of table  --> 
+      <div class="table-responsive">
+          <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0">
+              <thead class="blue white-text">
+              <tr class="font-weight-bold">
+                  <th class="">Business Name</th>
+                  <th class="">Business Email</th>
+                  <th class="">Business Description </th>
+                  <th class="">Neighborhood Name</th> 
+                  <th class="th-sm">Police Contacts</th>
+                  <th class="th-sm">Health Contacts</th>                    
+              </tr>
+              </thead>
+  
+              <tbody>
+                {% for business in business %}
+                  <tr>
+                      <td>{{business.name}}</td>
+                      <td>{{business.address}}</td>
+                      <td>{{business.email}}</td>
+                      <td>{{business.neighborhood.name}}</td> 
+                      <td>{{business.police}}</td>
+                      <td>{{business.health}}</td>   
+                  </tr>
+                  {% endfor %}                
+              </tbody>                  
+          </table>
+      </div>
+      <!-- end of table  -->
+    {% endif %}
+  </div>
+
 </div>
 {% endblock %}
 
-<div class="container-fluid">
-  {% if businesses %}
-    <!-- start of table  --> 
-    <div class="table-responsive">
-        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0">
-            <thead class="grey black-text">
-            <tr class="font-weight-bold">
-                <th class="">Business Name</th>
-                <th class="">Business Email</th>
-                <th class="">Business Description </th>
-                <th class="">Neighborhood Name</th> 
-                <th class="th-sm">Police Contacts</th>
-                <th class="th-sm">Health Contacts</th>                    
-            </tr>
-            </thead>
-
-            <tbody>
-                {% for business in business %}
-                <tr>
-                    <td>{{business.name}}</td>
-                    <td>{{business.address}}</td>
-                    <td>{{business.email}}</td>
-                    <td>{{business.neighborhood.name}}</td> 
-                    <td>{{business.police}}</td>
-                    <td>{{business.health}}</td>   
-                </tr>
-                {% endfor %}                
-            </tbody>                  
-        </table>
-    </div>
-    <!-- end of table  -->
-  {% endif %}
-</div>

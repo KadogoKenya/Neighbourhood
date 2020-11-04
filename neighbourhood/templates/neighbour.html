@@ -36,10 +36,11 @@
                 <div class="col-md-7">
     
                     {% for business in business %}
-                    <div class="card mb-4">
-                        <div class="card-image">
-                            <img src="{{ business_image.url }}" alt="" class="card-header">
-                        </div>
+                    <!-- <div class="card mb-4 30rem;"> -->
+                    <div class="card" style="width: 30rem;">
+                        <div class="card-img">
+                            <img class="card-img" src="{{ business.image.url }}" style="width: 300px; height: 300px;">
+                          </div>
                        
                         <div class="card-body">
                             <h5 class="card-title">Name: <small class="text-muted">{{business.name}}</small></h5>
