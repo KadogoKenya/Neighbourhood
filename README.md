@@ -12,25 +12,29 @@ The following command installs all the application requirements pip freeze -r re
 
 Installations Cloning the repository: https://github.com/KadogoKenya/Neighbourhood.git
 
-Navigate to the project folder cd project reviews
+- Navigate to the project folder cd project reviews
 
-Access the project folder and install requirements
+- Access the project folder and install requirements
 
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
-Creating a virtual environment virtualenv virtual.
+- Creating a virtual environment virtualenv virtual.
 
-Activating the virtual environment source virtual/bin/activate.
+- Activating the virtual environment source virtual/bin/activate.
 
-Run the application python3 manage.py runserver on your terminal.
+- Run the application python3 manage.py runserver on your terminal.
 
-Running tests
+## Running tests
 python3 manage.py test.
 
-Technology used
-Python3 Django, HTML/CSS JS
+## Technology used
+- Python3
+- Django, 
+- HTML/CSS 
+- JS, 
+- bootstrap
 
-Support and Contact Details
+## Support and Contact Details
 For any information comments,suggestions,feedback or inquiries, contact me via email: catherinekanini001@gmail.com
 
 License
