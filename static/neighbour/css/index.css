@@ -5,10 +5,13 @@ ul>li{
     list-style-type: none;
 }
 
-.navbar-nav,
-.mr-auto {
-flex: 1;
-margin: auto !important;
-display: flex;
-justify-content: space-between;
+/* .navbar-nav, */
+.navbar{
+    margin-right: 25px;
+    margin-left: 25px;
 }
+
+.navbar > li{
+    padding-left:30px;
+    padding-right:30px;
+  }
