@@ -10,18 +10,15 @@
         Dear {{user.username|title}}, Welcome to your neighbourhood,{{ neighbour.name }} in {{neighbour.location}}
     </h5>
     <div class="row">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; justify-content: center;">
             <div class="card mb-3">
                 <div class="row">
                     <div class="card-body">
                         <div class="col-md-6">
                             <p class="card-text">
                                 <span class="text-info">Police Contact</span>&nbsp;<strong>{{neighbour.police}}</strong> <br><br>
-
                                 <span class="text-info">Hospital Contacts</span> <strong>{{neighbour.health}}</strong></p><br><br>
-
                                 <span class="text-info">Description</span>&nbsp;<strong>{{neighbour.description}}</strong> <br><br>
-
                             <p class="card-text">Admin:{{user.username|title}}</p>
                         </div>
 
@@ -62,7 +59,7 @@
                         {% csrf_token%}
                         {{form|crispy}}
                         <button type="submit" class="btn btn-sm btn-success">Save Business</button>
-                        <button type="button" class="btn btn-sm btn-outline-danger " data-dismiss="modal">
+                        <button type="button" class="btn btn-sm btn-outline-primary " data-dismiss="modal">
                             Dismiss
                         </button>
                     </form>
