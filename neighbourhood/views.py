@@ -5,6 +5,7 @@ from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from .models import Neighbourhood, Post, Business
 from .forms import NeighbourHoodForm, PostForm, BusinessForm
+from django.views.generic.edit import DeleteView
 
 # Create your views here.
 @login_required(login_url='/login/')
@@ -115,3 +116,9 @@ def delete_view(request, neighbour_id):
         return HttpResponseRedirect("/") 
   
     return render(request, "delete_view.html", context) 
+
+# class NeighbourhoodDeleteView(DeleteView): 
+    
+#     model = Neighbourhood
+
+#     success_url ="/"
