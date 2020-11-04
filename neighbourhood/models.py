@@ -5,7 +5,6 @@ from cloudinary.models import CloudinaryField
 import cloudinary
 
 
-
 # Create your models here.
 
 class Neighbourhood(models.Model):

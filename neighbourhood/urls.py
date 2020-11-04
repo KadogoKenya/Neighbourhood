@@ -17,6 +17,7 @@ urlpatterns = [
     path('new_posts/<neighbour_id>', views.new_posts, name='new_posts'),
     path('neighbour/<neighbour_id>', views.neighbour, name='neighbour'),
     url(r'^search/', views.search_by_name, name='search_results'),
+    path('<id>/delete', delete_view ),
 
 
 ]

@@ -56,7 +56,7 @@ def new_posts(request, neighbour_id):
     return render(request, 'new_posts.html', {'form': form})
 
 
-
+@login_required(login_url='login')
 def neighbour(request, neighbour_id):
     neighbour = Neighbourhood.objects.get(id=neighbour_id)
     business = Business.objects.filter(id=neighbour_id)
@@ -94,3 +94,24 @@ def search_by_name(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'neighbour/search.html',{"message":message})
+
+
+def delete_view(request, neighbour_id): 
+    # dictionary for initial data with  
+    # field names as keys 
+    context ={
+        'neighbour': neighbour,
+    } 
+  
+    # fetch the object related to passed id 
+    neighbour = get_object_or_404(Neighbourhood, id = neighbour_id) 
+  
+  
+    if request.method =="POST": 
+        # delete object 
+        neighbour.delete() 
+        # after deleting redirect to  
+        # home page 
+        return HttpResponseRedirect("/") 
+  
+    return render(request, "delete_view.html", context) 
