@@ -40,14 +40,14 @@
               </thead>
   
               <tbody>
-                {% for business in business %}
+                {% for bs in business %}
                   <tr>
-                      <td>{{business.name}}</td>
-                      <td>{{business.address}}</td>
-                      <td>{{business.email}}</td>
-                      <td>{{business.neighborhood.name}}</td> 
-                      <td>{{business.police}}</td>
-                      <td>{{business.health}}</td>   
+                      <td>{{bs.name}}</td>
+                      <td>{{bs.email}}</td>
+                      <td>{{bs.description}}</td>
+                      <td>{{bs.neighboourhood.name}}</td> 
+                      <td>{{bs.police}}</td>
+                      <td>{{bs.health}}</td>   
                   </tr>
                   {% endfor %}                
               </tbody>                  

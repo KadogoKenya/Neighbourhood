@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+import cloudinary
 import cloudinary.uploader
 from cloudinary.models import CloudinaryField
-import cloudinary
+
 
 
 # Create your models here.
@@ -47,7 +48,7 @@ class Business(models.Model):
     # id=models.IntegerField()
     # user=models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     email=models.EmailField()
-    image = cloudinary.models.CloudinaryField('images', default='default.jpg')
+    image = CloudinaryField('images')
     description = models.TextField(blank=True)
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, related_name='business')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
@@ -70,12 +71,30 @@ class Business(models.Model):
         business = cls.objects.filter(name__icontains=search_term)
         return business
 
+    @classmethod
+    def get_businesses(request, id):
+        try:
+            business = Business.objects.get(pk = id)
+            
+        except ObjectDoesNotExist:
+            raise Http404()
+        
+        return business
+    
+    def _str_(self):
+        return self.name
+    
+    class Meta:
+        # ordering = ['-pub_date']
+        verbose_name = 'My Business'
+        verbose_name_plural = 'Business'
+
     
 
 
 class Post(models.Model):
     post = models.TextField()
-    image = cloudinary.models.CloudinaryField('images',default='default.jpg')
+    image = CloudinaryField('images')
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_owner')
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, related_name='neighbour')

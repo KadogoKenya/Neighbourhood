@@ -1,0 +1,36 @@
+{% extends 'neighbour/base.html' %}
+{% load cloudinary %}
+{%load static%}
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- <div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-sm btn-info ">Add business</button>
+    </form>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <hr>
+            <h2>Update your business to neighbourhoods</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" class="btn btn-sm btn-success">Save Business</button>
+                <button type="button" class="btn btn-sm btn-outline-primary " data-dismiss="modal">
+                    Dismiss
+                </button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+

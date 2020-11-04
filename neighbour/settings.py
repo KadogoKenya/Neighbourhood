@@ -36,16 +36,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
     'cloudinary',
     'bootstrap3',
     'crispy_forms',
-    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.messages',  
     'neighbourhood.apps.NeighbourhoodConfig',
     'users.apps.UsersConfig',
 
@@ -89,6 +89,8 @@ DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
         'NAME': 'neighbour',
+        'user':'kate',
+        'password':'Kanini12'
     }
 }
 cloudinary.config( 
@@ -155,6 +157,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'  # or any prefix you choose
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 
 
 LOGIN_REDIRECT_URL='index'

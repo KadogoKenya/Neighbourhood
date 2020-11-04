@@ -56,6 +56,25 @@ def new_posts(request, neighbour_id):
         form = PostForm()
     return render(request, 'new_posts.html', {'form': form})
 
+# new business method
+@login_required(login_url='/accounts/login/')
+def new_business(request):
+    current_user = request.user
+    profile = request.user.profile
+
+    if request.method == 'POST':
+        form = BusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+            business.Admin = current_user
+            business.admin_profile = profile
+            business.save()
+        return redirect('all_neighbourhoods')
+
+    else:
+        form = BusinessForm()
+    return render(request, 'neighbour/new-business.html', {"form": form})
+
 
 @login_required(login_url='login')
 def neighbour(request, neighbour_id):

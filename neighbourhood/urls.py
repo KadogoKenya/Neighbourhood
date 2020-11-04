@@ -16,9 +16,15 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('all_neighbourhoods', views.all_neighbourhoods, name='all_neighbourhoods'),
     path('new_posts/<neighbour_id>', views.new_posts, name='new_posts'),
+    # path('new_posts/<neighbour_id>', views.new_posts, name='new_posts'),
     path('neighbour/<neighbour_id>', views.neighbour, name='neighbour'),
     url(r'^search/', views.search_by_name, name='search_results'),
     path('<id>/delete', views.delete_view, name='delete_view'),
+
+    # path('new_business/<neighbour_id>', views.new_posts, name='new_business'),
+    # url('new/business$', views.new_business, name='new_business'),
+
+    url(r'^new/business$', views.new_business, name='new-business'),
     # path('<pk>/delete/', NeighbourhoodDeleteView.as_view()), 
 
 

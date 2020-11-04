@@ -10,9 +10,10 @@
         Dear {{user.username|title}}, Welcome to your neighbourhood,{{ neighbour.name }} in {{neighbour.location}}
     </h5>
     <div class="row">
+        <div class="col-md-4">
         <div class="card" style="width: 18rem; justify-content: center;">
-            <div class="card mb-3">
-                <div class="row">
+            
+                
                     <div class="card-body">
                         <div class="col-md-6">
                             <p class="card-text">
@@ -23,21 +24,22 @@
                         </div>
 
                     </div>
-                </div>
+                
             </div>
         </div>
 
-        <div class="row">
+       
 
-            <div class="col-md-12">
+            <!-- <div class="col-md-12"> -->
 
-                <h5 class="D-block mx-auto">Business</h5>
-                <hr>
-                <div class="col-md-7">
+                
+                <div class="col-md-4">
     
                     {% for business in business %}
                     <!-- <div class="card mb-4 30rem;"> -->
                     <div class="card" style="width: 30rem;">
+                        <h5 class="D-block mx-auto">Business</h5>
+                         <hr>
                         <div class="card-img">
                             <img class="card-img" src="{{ business.image.url }}" style="width: 300px; height: 300px;">
                           </div>
@@ -53,27 +55,22 @@
                             <p class="card-text">Police Contacts: <small class="text-muted">{{ business.police }}</small></p>
                         </div>
                     </div>
+
+                    <a href="{% url 'new-business' %}" class="btn btn-primary">ADD BUSINESS</a>
+
                     {% endfor %}
-                    <hr>
-                    <h2>Update your business to neighbourhoods</h2>
-                    <form action="" method="post">
-                        {% csrf_token%}
-                        {{form|crispy}}
-                        <button type="submit" class="btn btn-sm btn-success">Save Business</button>
-                        <button type="button" class="btn btn-sm btn-outline-primary " data-dismiss="modal">
-                            Dismiss
-                        </button>
-                    </form>
-    
+
+                    
                 </div>
-                <div class="col-md-1"></div>
+                <!-- <div class="col-md-1"></div>
+     -->
     
-    
-                <h5 class="D-block mx-auto">Posts</h5>
-                <div class="col-md-5">
-                    <a href="{% url 'new_posts' neighbour.id %}" class="btn btn-primary">ADD POST</a>
+                
+                <div class="col-md-4">
+                    
                     {% for post in posts %}
                     <div class="card" style="width: 30rem;">
+                        <h5 class="D-block mx-auto">Posts</h5>
                         <div class="card-img">
                           <img class="card-img" src="{{ post.image.url }}" style="width: 300px; height: 300px;">
                         </div>
@@ -84,15 +81,17 @@
                             <p class="card-text">Neighbourhood: <small class="text-muted">{{ post.neighbourhood|title }}</small> <small style="float:right"> Posted on:{{ post.date|date}}</small></p>
                         </div>
                     </div>
+
+                    <a href="{% url 'new_posts' neighbour.id %}" class="btn btn-primary">ADD POST</a>
                     {% endfor %}
                 </div>
-            </div>
+            <!-- </div> -->
 
         </div>
 
 
-
     </div>
-</div>
-</div>
+    <!-- </div> -->
+<!-- </div> -->
+
 {% endblock %}
