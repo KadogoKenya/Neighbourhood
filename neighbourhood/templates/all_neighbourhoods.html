@@ -9,13 +9,6 @@
    
     <div class="row">
 
-        <div class="col-md-4">
-            <h2>Neighbourhood</h2>
-
-        {% for neighbourhoods in neighbourhoods %}
-        <a href="{% url 'neighbour' neighbourhoods.id %}" class='btn btn-primary btn-sm'>{{neighbourhoods.name}}</a> <br>
-        {% endfor %}
-        </div>
 <div class="col-md-8">
         <h2>Welcome to our neighbourhood community</h2>
         <div class="table-responsive">
@@ -64,6 +57,14 @@
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Neighbourhood</h2>
+
+    {% for neighbourhoods in neighbourhoods %}
+    <a href="{% url 'neighbour' neighbourhoods.id %}" class='btn btn-primary btn-sm'>{{neighbourhoods.name}}</a> <br>
+    {% endfor %}
     </div>
 
     </div>
